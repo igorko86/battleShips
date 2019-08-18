@@ -1,0 +1,18 @@
+.field {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.sector {
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+.fourdeck,
+.tripledeck,
+.doubledeck,
+.singledeck {
+    background: green;
+}
