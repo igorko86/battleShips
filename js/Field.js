@@ -50,3 +50,4 @@ const field = new Field(400, 400);
 field.createField();
 field.createSectors();
 field.createMatrix();
+// rework this class
