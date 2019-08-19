@@ -1,0 +1,23 @@
+{
+    "name": "battleships",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack-dev-server --mode development --open",
+        "build": "webpack --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/igorko86/battleShips/tree/webpack"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "path": "^0.12.7",
+        "webpack": "^4.39.2",
+        "webpack-cli": "^3.3.7",
+        "webpack-dev-server": "^3.8.0"
+    },
+    "dependencies": {}
+}
