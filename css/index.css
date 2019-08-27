@@ -1,8 +1,15 @@
-.field {
+#container {
+    width: 100%;
+    display: flex;
+}
+
+.userField,
+.computerField {
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    margin: 10px;
+    position: relative;
 }
 
 .sector {
