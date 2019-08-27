@@ -1,13 +1,23 @@
-.field {
+#container {
+    width: 100%;
+    display: flex;
+}
+
+.userField,
+.computerField {
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    margin: 10px;
+    position: relative;
 }
 
 .sector {
     border: 1px solid red;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .fourdeck,
@@ -15,4 +25,14 @@
 .doubledeck,
 .singledeck {
     background: green;
+}
+
+.dote {
+    display: block;
+    border-radius: 50%;
+    background: black;
+}
+
+.killed {
+    border: 1px solid black;
 }
