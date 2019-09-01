@@ -14,10 +14,11 @@ export default class Ship {
         this.createDecks(field, coordinates);
     }
 
-    createDecks(field, coordinates) {
+
+    createDecks(field) {
         let collectionSectors = document.querySelectorAll(`.${field.className} .sector`),
             { direction } = this,
-            { x, y } = coordinates,
+            { x, y } = this.location,
             width = field.width / NUMBER_SECTORS,
             height = field.height / NUMBER_SECTORS,
             left, top;
@@ -28,18 +29,30 @@ export default class Ship {
             top = (direction === DIRECTION_VERTICAL) ? y + i : y;;
             [...collectionSectors].forEach(element => {
 
+
                 if (element.offsetTop === (top * height) && element.offsetLeft === (left * width)) {
                     // TODO show it after remove above
-                    // if (`${field.className}` === 'userField') {
-                    //     element.className = `${element.className} ${this.name}`;
-                    // }
-                    // TODO remove it later 
-                    element.className = `${element.className} ${this.name}`;
-                    field.matrix[top][left] = 1;
-                    this.shipLocation.push({ y: top, x: left });
-                    this.nodes.push(element);
+
+                    [...collectionSectors].forEach(element => {
+
+                        if (element.offsetTop === (top * height) && element.offsetLeft === (left * width)) {
+                            // TODO show it after removing above
+
+                            // if (`${field.className}` === 'userField') {
+                            //     element.className = `${element.className} ${this.name}`;
+                            // }
+                            // TODO remove it later 
+                            element.className = `${element.className} ${this.name}`;
+                            field.matrix[top][left] = 1;
+
+                            this.shipLocation.push({ y: top, x: left });
+                            this.nodes.push(element);
+                        }
+                    });
+
                 }
             });
+
         }
     }
 }
