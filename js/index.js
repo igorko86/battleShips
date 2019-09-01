@@ -5,6 +5,7 @@ import { getRandomNumber, createElement } from './helpers.js';
 
 
 
+
 const userField = new Field('userField', { height: 200, width: 200 });
 const computerField = new Field('computerField', { height: 200, width: 200 });
 userField.createField();
@@ -23,13 +24,15 @@ function getParametersShips(arrayShips) {
     });
 }
 
+
+
 function prepareToCreateShips(paramShip) {
     let { numberShips, decks } = paramShip;
 
     for (let i = 0; i < numberShips; i++) {
         let direction,
-            ship,
             isShip = false,
+            ship,
             x, y;
 
         while (!isShip) {
@@ -45,10 +48,10 @@ function prepareToCreateShips(paramShip) {
 
             isShip = checkCoordinates.call(this, x, y, decks, direction);
         }
+
         ship = new Ship(paramShip)
         ship.direction = direction;
         ship.createShip(this, { x, y });
-
         if (this.className === NAME_COMPUTER_FIELD) {
             this.ships.push(ship);
         }
@@ -136,6 +139,7 @@ function getDirection() {
 
 
 
+
 // USER. Create class User later
 
 function handlerShoot() {
@@ -158,8 +162,8 @@ function shoot() {
 
             for (let i = 0; i < shipLocation.length; i++) {
                 if (shipLocation[i].y === shotY && shipLocation[i].x === shotX) {
-                    const width = (width / NUMBER_SECTORS),
-                        height = (height / NUMBER_SECTORS);
+                    const width = (computerField.width / NUMBER_SECTORS),
+                        height = (computerField.height / NUMBER_SECTORS);
                     ship.hit++;
 
                     if (ship.hit === decks) {
@@ -190,3 +194,15 @@ function showShoot(node, attributes) {
     node.appendChild(element);
 }
 handlerShoot();
+
+function getCoordinatesShoot() {
+    const collectionSectors = document.querySelectorAll(`.${computerField.className} .sector`);
+
+    collectionSectors.forEach(el => {
+        el.addEventListener('click', (e) => {
+            console.log({ y: el.offsetTop });
+
+        }, true);
+    });
+}
+console.log(getCoordinatesShoot());
