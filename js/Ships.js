@@ -15,10 +15,12 @@ export default class Ship {
     }
 
 
+
     createDecks(field, coordinates) {
         let collectionSectors = document.querySelectorAll(`.${field.className} .sector`),
             { direction } = this,
             { x, y } = coordinates,
+
             width = field.width / NUMBER_SECTORS,
             height = field.height / NUMBER_SECTORS,
             left, top;

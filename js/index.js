@@ -29,6 +29,7 @@ function getParametersShips(arrayShips) {
 function prepareToCreateShips(paramShip) {
     let { numberShips, decks } = paramShip;
 
+
     for (let i = 0; i < numberShips; i++) {
         let direction,
             isShip = false,
